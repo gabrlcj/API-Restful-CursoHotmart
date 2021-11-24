@@ -1,5 +1,5 @@
 const express = require('express')
-// import path from 'path'
+const cors = require('cors')
 
 const db = require('./database')
 const routes = require('./routes')
@@ -8,6 +8,9 @@ const app = express()
 
 // conexão com o banco de dados
 db.connect()
+
+// habilita CORS
+app.use(cors())
 
 // habilita server para receber dados no formato JSON
 app.use(express.json())
